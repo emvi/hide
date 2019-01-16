@@ -1,11 +1,38 @@
 package hide
 
 import (
+	"database/sql/driver"
 	"encoding/json"
+	"errors"
 )
 
+// ID type that can be used as an replacement for int64.
+// It is converted to/from a hash value when marshalled to/from JSON.
 type ID int64
 
+// Scan implements the Scanner interface.
+func (this *ID) Scan(value interface{}) error {
+	if value == nil {
+		*this = 0
+		return nil
+	}
+
+	id, ok := value.(int64)
+
+	if !ok {
+		return errors.New("unexpected type")
+	}
+
+	*this = ID(id)
+	return nil
+}
+
+// Value implements the driver Valuer interface.
+func (this ID) Value() (driver.Value, error) {
+	return int64(this), nil
+}
+
+// MarshalJSON implements the encoding json interface.
 func (this ID) MarshalJSON() ([]byte, error) {
 	result, err := hash.Encode(this)
 
@@ -16,6 +43,7 @@ func (this ID) MarshalJSON() ([]byte, error) {
 	return json.Marshal(string(result))
 }
 
+// UnmarshalJSON implements the encoding json interface.
 func (this *ID) UnmarshalJSON(data []byte) error {
 	// remove quotes
 	if len(data) >= 2 {

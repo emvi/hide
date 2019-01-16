@@ -6,7 +6,8 @@
 
 Hide is a simple package to provide an ID type that is marshalled to/from a hash string.
 This prevents sending technical IDs to clients and offers auto converting those IDs on the API layer.
-Hide uses [hashids](https://github.com/speps/go-hashids) as its default hash function. But you can provide your own by implementing the `Hash` interface.
+Hide uses [hashids](https://github.com/speps/go-hashids) as its default hash function.
+But you can provide your own by implementing the `Hash` interface and configuring it using `hide.UseHash`.
 
 ## Installation
 

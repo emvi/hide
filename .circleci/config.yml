@@ -1,0 +1,9 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: golang
+    working_directory: /go/src/github.com/emvicom/hide
+    steps:
+      - checkout
+      - run: go test -cover .

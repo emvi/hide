@@ -86,3 +86,31 @@ func TestUnmarshalIDStruct(t *testing.T) {
 		t.Fatalf("Expected unmarshalled struct to be %v, but was: %v", expected, out)
 	}
 }
+
+func TestScan(t *testing.T) {
+	var id ID
+	value := int64(123)
+
+	if err := id.Scan(value); err != nil {
+		t.Fatal(err)
+	}
+
+	if id != 123 {
+		t.Fatalf("ID must have been set to value by scan, but was: %v", id)
+	}
+}
+
+func TestValue(t *testing.T) {
+	id := ID(123)
+	driverValue, err := id.Value()
+
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	_, ok := driverValue.(int64)
+
+	if !ok {
+		t.Fatal("Driver value must be of type int64")
+	}
+}
