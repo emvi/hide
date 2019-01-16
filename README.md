@@ -1,3 +1,7 @@
+<p align="center">
+    <img src="hidegopher.png" width="300px" />
+</p>
+
 # Hide IDs
 
 [![GoDoc](https://godoc.org/github.com/emvi/hide?status.svg)](https://godoc.org/github.com/emvi/hide)
