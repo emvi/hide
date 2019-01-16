@@ -1,6 +1,7 @@
 package hide
 
 import (
+	"database/sql/driver"
 	"encoding/json"
 	"testing"
 )
@@ -112,5 +113,21 @@ func TestValue(t *testing.T) {
 
 	if !ok {
 		t.Fatal("Driver value must be of type int64")
+	}
+}
+
+func TestNull(t *testing.T) {
+	var id ID
+	out, _ := id.MarshalJSON()
+	expected := "null"
+
+	if string(out) != expected {
+		t.Fatalf("Expected null ID to be '%v', but was: %v", expected, string(out))
+	}
+
+	value, _ := id.Value()
+
+	if value != driver.Value(nil) {
+		t.Fatalf("Expected null ID to be driver.Value nil, but was: %v", value)
 	}
 }

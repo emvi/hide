@@ -8,6 +8,7 @@ import (
 
 // ID type that can be used as an replacement for int64.
 // It is converted to/from a hash value when marshalled to/from JSON.
+// Value 0 is considered null.
 type ID int64
 
 // Scan implements the Scanner interface.
@@ -29,11 +30,19 @@ func (this *ID) Scan(value interface{}) error {
 
 // Value implements the driver Valuer interface.
 func (this ID) Value() (driver.Value, error) {
+	if this == 0 {
+		return nil, nil
+	}
+
 	return int64(this), nil
 }
 
 // MarshalJSON implements the encoding json interface.
 func (this ID) MarshalJSON() ([]byte, error) {
+	if this == 0 {
+		return json.Marshal(nil)
+	}
+
 	result, err := hash.Encode(this)
 
 	if err != nil {

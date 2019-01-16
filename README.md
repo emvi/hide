@@ -55,6 +55,7 @@ This allows you to cast between them and use `hide.ID` as an replacement. The re
 ```
 
 If you send the new ID (which is a string now) back to the server and unmarshal it into the `hide.ID` type, you'll get the original technical ID back.
+It's also worth mentioning that a value of 0 is translated to null when marshalling to JSON or storing in database.
 
 [View the full demo](https://github.com/emvicom/hide-example)
 
