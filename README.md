@@ -56,6 +56,8 @@ This allows you to cast between them and use `hide.ID` as an replacement. The re
 
 If you send the new ID (which is a string now) back to the server and unmarshal it into the `hide.ID` type, you'll get the original technical ID back.
 
+[View the full demo](https://github.com/emvicom/hide-example)
+
 ## Contribute
 
 [See CONTRIBUTING.md](CONTRIBUTING.md)
