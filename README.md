@@ -1,8 +1,8 @@
 # Hide IDs
 
-[![GoDoc](https://godoc.org/github.com/emvicom/hide?status.svg)](https://godoc.org/github.com/emvicom/hide)
-[![CircleCI](https://circleci.com/gh/emvicom/hide.svg?style=svg)](https://circleci.com/gh/emvicom/hide)
-[![Go Report Card](https://goreportcard.com/badge/github.com/emvicom/hide)](https://goreportcard.com/report/github.com/emvicom/hide)
+[![GoDoc](https://godoc.org/github.com/emvi/hide?status.svg)](https://godoc.org/github.com/emvi/hide)
+[![CircleCI](https://circleci.com/gh/emvi/hide.svg?style=svg)](https://circleci.com/gh/emvi/hide)
+[![Go Report Card](https://goreportcard.com/badge/github.com/emvi/hide)](https://goreportcard.com/report/github.com/emvi/hide)
 
 Hide is a simple package to provide an ID type that is marshalled to/from a hash string.
 This prevents sending technical IDs to clients and offers auto converting those IDs on the API layer.
@@ -12,7 +12,7 @@ But you can provide your own by implementing the `Hash` interface and configurin
 ## Installation
 
 ```
-go get github.com/emvicom/hide
+go get github.com/emvi/hide
 ```
 
 ## Example
@@ -57,7 +57,7 @@ This allows you to cast between them and use `hide.ID` as an replacement. The re
 If you send the new ID (which is a string now) back to the server and unmarshal it into the `hide.ID` type, you'll get the original technical ID back.
 It's also worth mentioning that a value of 0 is translated to null when marshalling to JSON or storing in database.
 
-[View the full demo](https://github.com/emvicom/hide-example)
+[View the full demo](https://github.com/emvi/hide-example)
 
 ## Contribute
 
