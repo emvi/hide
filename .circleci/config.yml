@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       - image: golang
-    working_directory: /go/src/github.com/emvicom/hide
+    working_directory: /go/src/github.com/emvi/hide
     steps:
       - checkout
       - run: go get github.com/speps/go-hashids
