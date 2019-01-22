@@ -49,7 +49,7 @@ type User struct {
 ```
 
 Notice that the `int64` ID got replaced by the `hide.ID`, which internally is represented as an `int64` as well, but implements the marshal interface.
-This allows you to cast between them and use `hide.ID` as an replacement. The resulting JSON changes to the following:
+This allows you to cast between them and use `hide.ID` as a replacement. The resulting JSON changes to the following:
 
 ```
 {
