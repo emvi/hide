@@ -35,6 +35,10 @@ func (this *HashID) Encode(id ID) ([]byte, error) {
 
 // Decode implements the hide.Hash interface.
 func (this *HashID) Decode(data []byte) (ID, error) {
+	if len(data) == 0 {
+		return 0, errors.New("input value empty")
+	}
+
 	hash, err := this.newHash()
 
 	if err != nil {

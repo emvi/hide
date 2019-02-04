@@ -13,3 +13,9 @@ func TestFromString(t *testing.T) {
 		t.Fatalf("Must return ID from string, but was: %v %v", err, id)
 	}
 }
+
+func TestFromStringEmpty(t *testing.T) {
+	if id, err := FromString(""); err.Error() != "input value empty" || id != 0 {
+		t.Fatalf("Must return error on empty string, but was: %v %v", err, id)
+	}
+}
