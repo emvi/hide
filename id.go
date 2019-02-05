@@ -4,6 +4,7 @@ import (
 	"database/sql/driver"
 	"encoding/json"
 	"errors"
+	"strings"
 )
 
 // ID type that can be used as an replacement for int64.
@@ -54,6 +55,12 @@ func (this ID) MarshalJSON() ([]byte, error) {
 
 // UnmarshalJSON implements the encoding json interface.
 func (this *ID) UnmarshalJSON(data []byte) error {
+	// convert null to 0
+	if strings.TrimSpace(string(data)) == "null" {
+		*this = 0
+		return nil
+	}
+
 	// remove quotes
 	if len(data) >= 2 {
 		data = data[1 : len(data)-1]

@@ -131,3 +131,14 @@ func TestNull(t *testing.T) {
 		t.Fatalf("Expected null ID to be driver.Value nil, but was: %v", value)
 	}
 }
+
+func TestUnmarshalNull(t *testing.T) {
+	in := `{"id":null}`
+	out := &struct {
+		Id ID `json:"id"`
+	}{}
+
+	if err := json.Unmarshal([]byte(in), out); err != nil || out.Id != 0 {
+		t.Fatalf("Expected null to be unmarshalled to 0, but was: %v %v", err, out.Id)
+	}
+}
