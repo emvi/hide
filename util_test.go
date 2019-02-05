@@ -19,3 +19,15 @@ func TestFromStringEmpty(t *testing.T) {
 		t.Fatalf("Must return 0 on empty string, but was: %v %v", err, id)
 	}
 }
+
+func TestToString(t *testing.T) {
+	if hash, err := ToString(123); err != nil || hash != "beJarVNaQM" {
+		t.Fatalf("Must return hash from ID, but was: %v %v", err, hash)
+	}
+}
+
+func TestToStringNull(t *testing.T) {
+	if hash, err := ToString(0); err != nil || hash != "null" {
+		t.Fatalf("Must return 0 from null ID, but was: %v %v", err, hash)
+	}
+}
