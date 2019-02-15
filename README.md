@@ -9,7 +9,7 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/emvi/hide)](https://goreportcard.com/report/github.com/emvi/hide)
 
 Hide is a simple package to provide an ID type that is marshalled to/from a hash string.
-This prevents sending technical IDs to clients and offers auto converting those IDs on the API layer.
+This prevents sending technical IDs to clients and converts them on the API layer.
 Hide uses [hashids](https://github.com/speps/go-hashids) as its default hash function.
 But you can provide your own by implementing the `Hash` interface and configuring it using `hide.UseHash`.
 
@@ -59,7 +59,7 @@ This allows you to cast between them and use `hide.ID` as a replacement. The res
 ```
 
 If you send the new ID (which is a string now) back to the server and unmarshal it into the `hide.ID` type, you'll get the original technical ID back.
-It's also worth mentioning that a value of 0 is translated to null when marshalling to JSON or storing in database.
+It's also worth mentioning that a value of 0 is translated to `null` when an ID is marshalled to JSON or stored in database.
 
 [View the full demo](https://github.com/emvi/hide-example)
 
