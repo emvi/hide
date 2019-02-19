@@ -11,14 +11,14 @@ type HashID struct {
 	MinLength int
 }
 
-// Creates a new HashID with given salt and minimum hash length.
+// NewHashID creates a new HashID with given salt and minimum hash length.
 func NewHashID(salt string, minlen int) *HashID {
 	return &HashID{salt, minlen}
 }
 
 // Encode implements the hide.Hash interface.
-func (this *HashID) Encode(id ID) ([]byte, error) {
-	hash, err := this.newHash()
+func (hasher *HashID) Encode(id ID) ([]byte, error) {
+	hash, err := hasher.newHash()
 
 	if err != nil {
 		return nil, err
@@ -34,12 +34,12 @@ func (this *HashID) Encode(id ID) ([]byte, error) {
 }
 
 // Decode implements the hide.Hash interface.
-func (this *HashID) Decode(data []byte) (ID, error) {
+func (hasher *HashID) Decode(data []byte) (ID, error) {
 	if len(data) == 0 {
 		return 0, nil
 	}
 
-	hash, err := this.newHash()
+	hash, err := hasher.newHash()
 
 	if err != nil {
 		return 0, err
@@ -59,10 +59,10 @@ func (this *HashID) Decode(data []byte) (ID, error) {
 }
 
 // Creates a new hashids.HashID object to encode/decode IDs.
-func (this *HashID) newHash() (*hashids.HashID, error) {
+func (hasher *HashID) newHash() (*hashids.HashID, error) {
 	config := hashids.NewData()
-	config.Salt = this.Salt
-	config.MinLength = this.MinLength
+	config.Salt = hasher.Salt
+	config.MinLength = hasher.MinLength
 	hash, err := hashids.NewWithData(config)
 
 	if err != nil {
