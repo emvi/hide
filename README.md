@@ -7,6 +7,7 @@
 [![GoDoc](https://godoc.org/github.com/emvi/hide?status.svg)](https://godoc.org/github.com/emvi/hide)
 [![CircleCI](https://circleci.com/gh/emvi/hide.svg?style=svg)](https://circleci.com/gh/emvi/hide)
 [![Go Report Card](https://goreportcard.com/badge/github.com/emvi/hide)](https://goreportcard.com/report/github.com/emvi/hide)
+<a href="https://discord.gg/5UWdRh"><img src="https://img.shields.io/discord/739184135649886288?logo=discord" alt="Chat on Discord"></a>
 
 Hide is a simple package to provide an ID type that is marshalled to/from a hash string.
 This prevents sending technical IDs to clients and converts them on the API layer.
