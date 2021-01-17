@@ -4,7 +4,7 @@
 
 # Hide IDs
 
-[![GoDoc](https://godoc.org/github.com/emvi/hide?status.svg)](https://godoc.org/github.com/emvi/hide)
+[![Go Reference](https://pkg.go.dev/badge/github.com/emvi/hide?status.svg)](https://pkg.go.dev/github.com/emvi/hide?status)
 [![CircleCI](https://circleci.com/gh/emvi/hide.svg?style=svg)](https://circleci.com/gh/emvi/hide)
 [![Go Report Card](https://goreportcard.com/badge/github.com/emvi/hide)](https://goreportcard.com/report/github.com/emvi/hide)
 <a href="https://discord.gg/fAYm4Cz"><img src="https://img.shields.io/discord/739184135649886288?logo=discord" alt="Chat on Discord"></a>
