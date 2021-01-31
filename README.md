@@ -1,7 +1,3 @@
-<p align="center">
-    <img src="hidegopher.png" width="300px" />
-</p>
-
 # Hide IDs
 
 [![Go Reference](https://pkg.go.dev/badge/github.com/emvi/hide?status.svg)](https://pkg.go.dev/github.com/emvi/hide?status)
@@ -73,3 +69,7 @@ It's also worth mentioning that a value of 0 is translated to `null` when an ID 
 ## License
 
 MIT
+
+<p align="center">
+    <img src="hidegopher.png" width="300px" />
+</p>
