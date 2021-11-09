@@ -1,4 +1,4 @@
-module github.com/emvi/hide/v2
+module github.com/emvi/hide
 
 go 1.17
 
