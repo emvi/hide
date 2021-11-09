@@ -90,7 +90,7 @@ func TestUnmarshalIDStruct(t *testing.T) {
 
 func TestScan(t *testing.T) {
 	var id ID
-	value := uint64(123)
+	value := int64(123)
 
 	if err := id.Scan(value); err != nil {
 		t.Fatal(err)
@@ -109,10 +109,10 @@ func TestValue(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	_, ok := driverValue.(uint64)
+	_, ok := driverValue.(int64)
 
 	if !ok {
-		t.Fatal("Driver value must be of type uint64")
+		t.Fatal("Driver value must be of type int64")
 	}
 }
 
