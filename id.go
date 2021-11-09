@@ -13,9 +13,9 @@ import (
 type ID uint64
 
 // Scan implements the Scanner interface.
-func (hideid *ID) Scan(value interface{}) error {
+func (hide *ID) Scan(value interface{}) error {
 	if value == nil {
-		*hideid = 0
+		*hide = 0
 		return nil
 	}
 
@@ -25,26 +25,26 @@ func (hideid *ID) Scan(value interface{}) error {
 		return errors.New("unexpected type")
 	}
 
-	*hideid = ID(id)
+	*hide = ID(id)
 	return nil
 }
 
 // Value implements the driver Valuer interface.
-func (hideid ID) Value() (driver.Value, error) {
-	if hideid == 0 {
+func (hide ID) Value() (driver.Value, error) {
+	if hide == 0 {
 		return nil, nil
 	}
 
-	return uint64(hideid), nil
+	return uint64(hide), nil
 }
 
 // MarshalJSON implements the encoding json interface.
-func (hideid ID) MarshalJSON() ([]byte, error) {
-	if hideid == 0 {
+func (hide ID) MarshalJSON() ([]byte, error) {
+	if hide == 0 {
 		return json.Marshal(nil)
 	}
 
-	result, err := hash.Encode(hideid)
+	result, err := hash.Encode(hide)
 
 	if err != nil {
 		return nil, err
@@ -54,10 +54,10 @@ func (hideid ID) MarshalJSON() ([]byte, error) {
 }
 
 // UnmarshalJSON implements the encoding json interface.
-func (hideid *ID) UnmarshalJSON(data []byte) error {
+func (hide *ID) UnmarshalJSON(data []byte) error {
 	// convert null to 0
 	if strings.TrimSpace(string(data)) == "null" {
-		*hideid = 0
+		*hide = 0
 		return nil
 	}
 
@@ -72,6 +72,6 @@ func (hideid *ID) UnmarshalJSON(data []byte) error {
 		return err
 	}
 
-	*hideid = ID(result)
+	*hide = result
 	return nil
 }

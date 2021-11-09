@@ -10,6 +10,6 @@ type Hash interface {
 
 // UseHash sets the hide.Hash used to marshal/unmarshal hide.ID to/from JSON.
 // hide.HashID is used by default.
-func UseHash(hasher Hash) {
-	hash = hasher
+func UseHash(hashFunction Hash) {
+	hash = hashFunction
 }
