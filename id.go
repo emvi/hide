@@ -7,10 +7,10 @@ import (
 	"strings"
 )
 
-// ID type that can be used as an replacement for int64.
+// ID type that can be used as an replacement for uint64.
 // It is converted to/from a hash value when marshalled to/from JSON.
 // Value 0 is considered null.
-type ID int64
+type ID uint64
 
 // Scan implements the Scanner interface.
 func (hideid *ID) Scan(value interface{}) error {
@@ -19,7 +19,7 @@ func (hideid *ID) Scan(value interface{}) error {
 		return nil
 	}
 
-	id, ok := value.(int64)
+	id, ok := value.(uint64)
 
 	if !ok {
 		return errors.New("unexpected type")
@@ -35,7 +35,7 @@ func (hideid ID) Value() (driver.Value, error) {
 		return nil, nil
 	}
 
-	return int64(hideid), nil
+	return uint64(hideid), nil
 }
 
 // MarshalJSON implements the encoding json interface.
